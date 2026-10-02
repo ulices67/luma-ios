@@ -8,6 +8,7 @@ public final class OfflineManager: ObservableObject {
     @Published public var aiModels: [LanguagePack] = SampleData.sampleAIModels
 
     private var cancellables = Set<AnyCancellable>()
+    private var downloadTasks: [String: AnyCancellable] = [:]
 
     private init() {}
 
@@ -18,11 +19,11 @@ public final class OfflineManager: ObservableObject {
             languagePacks[idx].isDownloading = true
             languagePacks[idx].downloadProgress = 0.0
 
-            Timer.publish(every: 0.2, on: .main, in: .common)
+            downloadTasks[packId] = Timer.publish(every: 0.2, on: .main, in: .common)
                 .autoconnect()
-                .sink { [weak self] timer in
+                .sink { [weak self] _ in
                     guard let self = self, let currentIndex = self.languagePacks.firstIndex(where: { $0.id == packId }) else {
-                        timer.upstream.connect().cancel()
+                        self?.downloadTasks.removeValue(forKey: packId)?.cancel()
                         return
                     }
 
@@ -32,20 +33,19 @@ public final class OfflineManager: ObservableObject {
                         self.languagePacks[currentIndex].isDownloading = false
                         self.languagePacks[currentIndex].isInstalled = true
                         self.languagePacks[currentIndex].downloadProgress = 1.0
-                        timer.upstream.connect().cancel()
+                        self.downloadTasks.removeValue(forKey: packId)?.cancel()
                     }
                 }
-                .store(in: &cancellables)
         } else if let idx = aiModels.firstIndex(where: { $0.id == packId }) {
             guard !aiModels[idx].isInstalled, !aiModels[idx].isDownloading else { return }
             aiModels[idx].isDownloading = true
             aiModels[idx].downloadProgress = 0.0
 
-            Timer.publish(every: 0.25, on: .main, in: .common)
+            downloadTasks[packId] = Timer.publish(every: 0.25, on: .main, in: .common)
                 .autoconnect()
-                .sink { [weak self] timer in
+                .sink { [weak self] _ in
                     guard let self = self, let currentIndex = self.aiModels.firstIndex(where: { $0.id == packId }) else {
-                        timer.upstream.connect().cancel()
+                        self?.downloadTasks.removeValue(forKey: packId)?.cancel()
                         return
                     }
 
@@ -55,20 +55,22 @@ public final class OfflineManager: ObservableObject {
                         self.aiModels[currentIndex].isDownloading = false
                         self.aiModels[currentIndex].isInstalled = true
                         self.aiModels[currentIndex].downloadProgress = 1.0
-                        timer.upstream.connect().cancel()
+                        self.downloadTasks.removeValue(forKey: packId)?.cancel()
                     }
                 }
-                .store(in: &cancellables)
         }
     }
 
     public func removePack(id: String) {
+        downloadTasks.removeValue(forKey: id)?.cancel()
         if let idx = languagePacks.firstIndex(where: { $0.id == id }) {
             languagePacks[idx].isInstalled = false
             languagePacks[idx].downloadProgress = 0.0
+            languagePacks[idx].isDownloading = false
         } else if let idx = aiModels.firstIndex(where: { $0.id == id }) {
             aiModels[idx].isInstalled = false
             aiModels[idx].downloadProgress = 0.0
+            aiModels[idx].isDownloading = false
         }
     }
 

@@ -133,7 +133,7 @@ extension AudioRecognitionService: SHSessionDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             guard let mediaItem = match.mediaItems.first else { return }
-            let offset = mediaItem.predictedCurrentMatchOffset(at: Date())
+            let offset = mediaItem.predictedCurrentMatchOffset
 
             // Map to our track model
             let matchedTrack = SampleData.sampleLibrary.first(where: {
