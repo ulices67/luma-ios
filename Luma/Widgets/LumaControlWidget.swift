@@ -34,7 +34,8 @@ public struct LumaControlCenterWidget: ControlWidget {
             }
         }
         .displayName("Luma Traductor")
-        .descriptionContext(.init("Reconoce música y muestra letra y subtítulos al instante."))
+        .description("Reconoce musica y muestra letra y subtitulos al instante.")
     }
 }
 #endif
+

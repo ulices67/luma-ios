@@ -69,6 +69,14 @@ public final class AudioRecognitionService: NSObject, ObservableObject {
         stopAudioEngine()
     }
 
+    public func triggerSimulatedMatch(_ track: MediaTrack) {
+        self.recognizedResult = RecognitionResult(
+            track: track,
+            matchOffset: 12.0,
+            matchConfidence: 0.99
+        )
+    }
+
     private func startAudioEngine() {
         #if os(iOS)
         let audioSession = AVAudioSession.sharedInstance()
@@ -154,7 +162,7 @@ extension AudioRecognitionService: SHSessionDelegate {
         guard let mediaItem = match.mediaItems.first else { return }
         let title = mediaItem.title ?? "Canción desconocida"
         let artist = mediaItem.artist ?? "Artista desconocido"
-        let offset = mediaItem.predictedCurrentMatchOffset(at: Date())
+        let offset = mediaItem.predictedCurrentMatchOffset
 
         Task {
             await self.processRealMatch(title: title, artist: artist, offset: offset)
