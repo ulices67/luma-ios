@@ -61,10 +61,10 @@ public final class MusicRecognitionEngine: NSObject, ObservableObject {
         #endif
     }
 
-    /// Loads custom acoustic signatures for offline identification without internet
     public func loadCustomOfflineCatalog(url: URL) throws {
         #if canImport(ShazamKit)
-        let catalog = try SHCustomCatalog(contentsOf: url)
+        let catalog = SHCustomCatalog()
+        try catalog.add(from: url)
         self.customCatalog = catalog
         self.session = SHSession(catalog: catalog)
         self.session?.delegate = self
@@ -78,7 +78,7 @@ extension MusicRecognitionEngine: SHSessionDelegate {
         guard let item = match.mediaItems.first else { return }
         let song = item.title ?? "Canción desconocida"
         let artist = item.artist ?? "Artista desconocido"
-        let position = item.predictedCurrentMatchOffset(at: Date())
+        let position = item.predictedCurrentMatchOffset
 
         let event = MusicMatchEvent(
             song: song,
