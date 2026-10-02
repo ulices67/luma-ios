@@ -9,6 +9,25 @@
 /* Begin PBXBuildFile section */
 		FCA02340DBF5F18C5D8EC408 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE7AE73907E9B9ECC9290F /* ContentView.swift */; };
 		FD40C968F7B9B12E7F9B80EE /* LumaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA2759CFAC0DDDFB97D0BC /* LumaApp.swift */; };
+		3DF69327ACF03663758F71B0 /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575D148B2A45B38A3576C5B6 /* AudioConverter.swift */; };
+		85BDE831AEDA14CD1611675D /* AudioRingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B008724DBE00124B5AA4308 /* AudioRingBuffer.swift */; };
+		94CB455F2BAAEB4646920B72 /* AudioRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31BF4F825F2EF8088741D12 /* AudioRouter.swift */; };
+		DACFD33248FD426B15EC2C26 /* CaptureEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC90715A880120C8864F898 /* CaptureEngine.swift */; };
+		60B6740837524465B4CC1372 /* ContentDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6959BE252CD5F27727831 /* ContentDetector.swift */; };
+		6B748E4E6BF40BF1B3237CC6 /* MediaEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB2DE6BCCE6611C644057C /* MediaEngine.swift */; };
+		AD80A52FDFDF1140ACFD8262 /* ChordEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CE789B9703B037C6F71222 /* ChordEngine.swift */; };
+		69E6635437BAD32F7D9DEC48 /* InstrumentEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7473F2BC0B54192CA43B34 /* InstrumentEngine.swift */; };
+		F0EFF1C4CC002D54C156E8DC /* LyricsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74FA9CCC9163257CF5ECD8 /* LyricsEngine.swift */; };
+		E5630F3F0D366E5323C823F2 /* MusicRecognitionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACB029DA53EA0E759169E77 /* MusicRecognitionEngine.swift */; };
+		AEC65C8971751FA5A5F19B68 /* PitchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C245F567B4F70AE2C1AADEE /* PitchEngine.swift */; };
+		F29848C823E6C1F2ED5AC26F /* RhythmEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971B7A9010A05C74FD3C3476 /* RhythmEngine.swift */; };
+		241F6488761D8B72CA66B3DA /* SpeechEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1C00A47E07676891D586E9 /* SpeechEngine.swift */; };
+		1BDC9AC5FF6E4324D600790A /* PiPSubtitleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC256689ED749F6B0506D2B /* PiPSubtitleController.swift */; };
+		AA3491D048A7868318C65BC8 /* SubtitleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA62DF1DD9D62A87D7B9244 /* SubtitleEngine.swift */; };
+		5A98119217FCF3A4C62C7007 /* SubtitleRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C76C8775047D1C5C9852D7C /* SubtitleRenderer.swift */; };
+		3A0B2D4EB9C80848906CCD22 /* LanguageDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4AD2D17D13FD95CA013D9C /* LanguageDetector.swift */; };
+		A51A34F086E3FA26046412D1 /* TranslationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103549095999D86996B9FD9E /* TranslationEngine.swift */; };
+		01BAF4A640B3FFF96BC526EE /* WordAlignmentEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3582063C08C38CFE54AD2E /* WordAlignmentEngine.swift */; };
 		2806314BC9302E525DA0FA12 /* ChordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057EF82BE75173265D7A15 /* ChordData.swift */; };
 		82E0A287CF46292263905EDE /* InstrumentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267AA6CC70E52531445EF87D /* InstrumentData.swift */; };
 		5CBEAE0E1F3A15BEEACE14D9 /* LanguagePack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B37858DA00E695AF883F85 /* LanguagePack.swift */; };
@@ -62,6 +81,25 @@
 /* Begin PBXFileReference section */
 		2ACE7AE73907E9B9ECC9290F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView.swift"; sourceTree = "<group>"; };
 		5DEA2759CFAC0DDDFB97D0BC /* LumaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LumaApp.swift"; sourceTree = "<group>"; };
+		575D148B2A45B38A3576C5B6 /* AudioConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioConverter.swift"; sourceTree = "<group>"; };
+		3B008724DBE00124B5AA4308 /* AudioRingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioRingBuffer.swift"; sourceTree = "<group>"; };
+		A31BF4F825F2EF8088741D12 /* AudioRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioRouter.swift"; sourceTree = "<group>"; };
+		EEC90715A880120C8864F898 /* CaptureEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaptureEngine.swift"; sourceTree = "<group>"; };
+		E9E6959BE252CD5F27727831 /* ContentDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentDetector.swift"; sourceTree = "<group>"; };
+		B7DB2DE6BCCE6611C644057C /* MediaEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaEngine.swift"; sourceTree = "<group>"; };
+		18CE789B9703B037C6F71222 /* ChordEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChordEngine.swift"; sourceTree = "<group>"; };
+		5E7473F2BC0B54192CA43B34 /* InstrumentEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InstrumentEngine.swift"; sourceTree = "<group>"; };
+		2C74FA9CCC9163257CF5ECD8 /* LyricsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyricsEngine.swift"; sourceTree = "<group>"; };
+		8ACB029DA53EA0E759169E77 /* MusicRecognitionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicRecognitionEngine.swift"; sourceTree = "<group>"; };
+		3C245F567B4F70AE2C1AADEE /* PitchEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PitchEngine.swift"; sourceTree = "<group>"; };
+		971B7A9010A05C74FD3C3476 /* RhythmEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RhythmEngine.swift"; sourceTree = "<group>"; };
+		6A1C00A47E07676891D586E9 /* SpeechEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeechEngine.swift"; sourceTree = "<group>"; };
+		1EC256689ED749F6B0506D2B /* PiPSubtitleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PiPSubtitleController.swift"; sourceTree = "<group>"; };
+		CBA62DF1DD9D62A87D7B9244 /* SubtitleEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubtitleEngine.swift"; sourceTree = "<group>"; };
+		0C76C8775047D1C5C9852D7C /* SubtitleRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubtitleRenderer.swift"; sourceTree = "<group>"; };
+		1C4AD2D17D13FD95CA013D9C /* LanguageDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageDetector.swift"; sourceTree = "<group>"; };
+		103549095999D86996B9FD9E /* TranslationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslationEngine.swift"; sourceTree = "<group>"; };
+		7F3582063C08C38CFE54AD2E /* WordAlignmentEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordAlignmentEngine.swift"; sourceTree = "<group>"; };
 		29057EF82BE75173265D7A15 /* ChordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChordData.swift"; sourceTree = "<group>"; };
 		267AA6CC70E52531445EF87D /* InstrumentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InstrumentData.swift"; sourceTree = "<group>"; };
 		47B37858DA00E695AF883F85 /* LanguagePack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguagePack.swift"; sourceTree = "<group>"; };
@@ -233,6 +271,72 @@
 			path = "Views";
 			sourceTree = "<group>";
 		};
+		EA99417F06A15AD780EF3B5D /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				575D148B2A45B38A3576C5B6 /* AudioConverter.swift */,
+				3B008724DBE00124B5AA4308 /* AudioRingBuffer.swift */,
+				A31BF4F825F2EF8088741D12 /* AudioRouter.swift */,
+				EEC90715A880120C8864F898 /* CaptureEngine.swift */,
+				E9E6959BE252CD5F27727831 /* ContentDetector.swift */,
+			);
+			path = "Audio";
+			sourceTree = "<group>";
+		};
+		76BD4E17D8231053D8664B1C /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				6A1C00A47E07676891D586E9 /* SpeechEngine.swift */,
+			);
+			path = "Speech";
+			sourceTree = "<group>";
+		};
+		8D9DDBB4FD082D83CB89CE34 /* Translation */ = {
+			isa = PBXGroup;
+			children = (
+				1C4AD2D17D13FD95CA013D9C /* LanguageDetector.swift */,
+				103549095999D86996B9FD9E /* TranslationEngine.swift */,
+				7F3582063C08C38CFE54AD2E /* WordAlignmentEngine.swift */,
+			);
+			path = "Translation";
+			sourceTree = "<group>";
+		};
+		FF0EF9F561C6F805E1B2B66E /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				18CE789B9703B037C6F71222 /* ChordEngine.swift */,
+				5E7473F2BC0B54192CA43B34 /* InstrumentEngine.swift */,
+				2C74FA9CCC9163257CF5ECD8 /* LyricsEngine.swift */,
+				8ACB029DA53EA0E759169E77 /* MusicRecognitionEngine.swift */,
+				3C245F567B4F70AE2C1AADEE /* PitchEngine.swift */,
+				971B7A9010A05C74FD3C3476 /* RhythmEngine.swift */,
+			);
+			path = "Music";
+			sourceTree = "<group>";
+		};
+		6A7BD9B70FDE5D59609556DC /* Subtitles */ = {
+			isa = PBXGroup;
+			children = (
+				1EC256689ED749F6B0506D2B /* PiPSubtitleController.swift */,
+				CBA62DF1DD9D62A87D7B9244 /* SubtitleEngine.swift */,
+				0C76C8775047D1C5C9852D7C /* SubtitleRenderer.swift */,
+			);
+			path = "Subtitles";
+			sourceTree = "<group>";
+		};
+		2CEC297B2F8FD63BE9393A5C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B7DB2DE6BCCE6611C644057C /* MediaEngine.swift */,
+				EA99417F06A15AD780EF3B5D /* Audio */,
+				76BD4E17D8231053D8664B1C /* Speech */,
+				8D9DDBB4FD082D83CB89CE34 /* Translation */,
+				FF0EF9F561C6F805E1B2B66E /* Music */,
+				6A7BD9B70FDE5D59609556DC /* Subtitles */,
+			);
+			path = "Core";
+			sourceTree = "<group>";
+		};
 		AFE69C5C8AC3791C32CDD8CF /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				AFE69C5C8AC3791C32CDD8CF /* App */,
+				2CEC297B2F8FD63BE9393A5C /* Core */,
 				6F0A075C584E1BD1FF406617 /* Models */,
 				FF83EFB83DEFD75594DDAE9E /* Services */,
 				B2ECE7E40BB97000E0F858E2 /* ViewModels */,
@@ -406,6 +511,25 @@
 			files = (
 				FCA02340DBF5F18C5D8EC408 /* ContentView.swift in Sources */,
 				FD40C968F7B9B12E7F9B80EE /* LumaApp.swift in Sources */,
+				3DF69327ACF03663758F71B0 /* AudioConverter.swift in Sources */,
+				85BDE831AEDA14CD1611675D /* AudioRingBuffer.swift in Sources */,
+				94CB455F2BAAEB4646920B72 /* AudioRouter.swift in Sources */,
+				DACFD33248FD426B15EC2C26 /* CaptureEngine.swift in Sources */,
+				60B6740837524465B4CC1372 /* ContentDetector.swift in Sources */,
+				6B748E4E6BF40BF1B3237CC6 /* MediaEngine.swift in Sources */,
+				AD80A52FDFDF1140ACFD8262 /* ChordEngine.swift in Sources */,
+				69E6635437BAD32F7D9DEC48 /* InstrumentEngine.swift in Sources */,
+				F0EFF1C4CC002D54C156E8DC /* LyricsEngine.swift in Sources */,
+				E5630F3F0D366E5323C823F2 /* MusicRecognitionEngine.swift in Sources */,
+				AEC65C8971751FA5A5F19B68 /* PitchEngine.swift in Sources */,
+				F29848C823E6C1F2ED5AC26F /* RhythmEngine.swift in Sources */,
+				241F6488761D8B72CA66B3DA /* SpeechEngine.swift in Sources */,
+				1BDC9AC5FF6E4324D600790A /* PiPSubtitleController.swift in Sources */,
+				AA3491D048A7868318C65BC8 /* SubtitleEngine.swift in Sources */,
+				5A98119217FCF3A4C62C7007 /* SubtitleRenderer.swift in Sources */,
+				3A0B2D4EB9C80848906CCD22 /* LanguageDetector.swift in Sources */,
+				A51A34F086E3FA26046412D1 /* TranslationEngine.swift in Sources */,
+				01BAF4A640B3FFF96BC526EE /* WordAlignmentEngine.swift in Sources */,
 				2806314BC9302E525DA0FA12 /* ChordData.swift in Sources */,
 				82E0A287CF46292263905EDE /* InstrumentData.swift in Sources */,
 				5CBEAE0E1F3A15BEEACE14D9 /* LanguagePack.swift in Sources */,

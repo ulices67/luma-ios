@@ -92,6 +92,31 @@ c:\Users\urite\Downloads\luma\
     ├── App/
     │   ├── LumaApp.swift          # AVAudioSession y ciclo de vida de la app
     │   └── ContentView.swift      # Envoltura principal
+    ├── Core/
+    │   ├── MediaEngine.swift      # Actor orquestador central desacoplado
+    │   ├── Audio/
+    │   │   ├── CaptureEngine.swift    # ScreenCaptureKit (Spotify/YouTube/Safari) y micrófono
+    │   │   ├── AudioRouter.swift      # Despacho a 16kHz mono (voz) y 48kHz (música)
+    │   │   ├── AudioConverter.swift   # Conversor de formatos PCM y downsampling
+    │   │   ├── AudioRingBuffer.swift  # Buffer circular thread-safe
+    │   │   └── ContentDetector.swift  # Clasificador de audio (Voz vs Música vs Silencio)
+    │   ├── Speech/
+    │   │   └── SpeechEngine.swift     # Transcriptor neural con TimedWord exactos
+    │   ├── Translation/
+    │   │   ├── TranslationEngine.swift   # Traducción de frases completas sin distorsión
+    │   │   ├── LanguageDetector.swift    # Detección de idioma con NaturalLanguage
+    │   │   └── WordAlignmentEngine.swift # Mapeo semántico palabra por palabra
+    │   ├── Subtitles/
+    │   │   ├── SubtitleEngine.swift      # Motor de subtítulos a 60 FPS
+    │   │   ├── SubtitleRenderer.swift    # Renderizador de frames a CVPixelBuffer/CMSampleBuffer
+    │   │   └── PiPSubtitleController.swift # Ventana flotante Picture-in-Picture del sistema
+    │   └── Music/
+    │       ├── MusicRecognitionEngine.swift # ShazamKit y catálogo offline SHCustomCatalog
+    │       ├── LyricsEngine.swift           # Proveedor desacoplado y cliente LRCLIB
+    │       ├── ChordEngine.swift            # Análisis armónico HPCP y ChordEvent
+    │       ├── RhythmEngine.swift           # Detección de tempo, BPM y compás
+    │       ├── InstrumentEngine.swift       # Clasificación multietiqueta de instrumentos
+    │       └── PitchEngine.swift            # Extracción de frecuencias y notas MIDI
     ├── Models/
     │   ├── TimedWord.swift        # Timestamps palabra por palabra, progreso y alineación
     │   ├── TimedLine.swift        # Líneas sincronizadas con acordes y hablantes

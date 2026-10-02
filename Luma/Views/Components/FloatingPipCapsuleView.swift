@@ -118,10 +118,12 @@ public struct FloatingPipCapsuleView: View {
             if isExpanded {
                 Divider().background(Color.white.opacity(0.2))
 
-                HStack(spacing: 16) {
+                HStack(spacing: 12) {
+                    quickButton(icon: "pip.enter", label: "PiP Sistema") {
+                        appState.toggleSystemPiP()
+                    }
                     quickButton(icon: "textformat.size", label: "Tamaño")
                     quickButton(icon: "rectangle.portrait", label: "Posición")
-                    quickButton(icon: "paintpalette", label: "Estilo")
                     quickButton(icon: playerVM.isPlaying ? "pause.fill" : "play.fill", label: playerVM.isPlaying ? "Pausa" : "Play") {
                         playerVM.togglePlayPause()
                     }
