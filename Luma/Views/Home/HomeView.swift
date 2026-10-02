@@ -2,7 +2,9 @@ import SwiftUI
 
 public struct HomeView: View {
     @ObservedObject var appState: AppState = AppState.shared
+    @ObservedObject var authService: AuthService = AuthService.shared
     @State private var searchText: String = ""
+    @State private var showAuthSheet: Bool = false
 
     public init() {}
 
@@ -12,27 +14,40 @@ public struct HomeView: View {
                 VStack(alignment: .leading, spacing: 22) {
                     // Header
                     HStack(alignment: .top) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Traductor")
-                                .font(.system(size: 34, weight: .bold, design: .rounded))
-                                .foregroundColor(.primary)
+                        HStack(alignment: .center, spacing: 12) {
+                            LumaLogoView(size: 40, showCardBackground: true, isAnimated: true)
 
-                            Text("Traducción en tiempo real para música, videos, podcasts y más.")
-                                .font(.system(size: 14, weight: .regular))
-                                .foregroundColor(.secondary)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Luma")
+                                    .font(.system(size: 28, weight: .bold, design: .rounded))
+                                    .foregroundColor(.primary)
+
+                                Text("Traducción & Detección en vivo")
+                                    .font(.system(size: 13, weight: .medium))
+                                    .foregroundColor(.secondary)
+                            }
                         }
 
                         Spacer()
 
+                        // User profile / Login button
                         Button {
-                            // Scanner / Link action
+                            showAuthSheet = true
                         } label: {
-                            Image(systemName: "qrcode.viewfinder")
-                                .font(.system(size: 20))
-                                .foregroundColor(.primary)
-                                .frame(width: 40, height: 40)
-                                .background(Color(.secondarySystemBackground))
-                                .clipShape(Circle())
+                            if let user = authService.currentUser {
+                                ZStack {
+                                    Circle()
+                                        .fill(LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .frame(width: 38, height: 38)
+                                    Text(String(user.fullName.prefix(1)))
+                                        .font(.system(size: 16, weight: .bold))
+                                        .foregroundColor(.white)
+                                }
+                            } else {
+                                Image(systemName: "person.circle.fill")
+                                    .font(.system(size: 32))
+                                    .foregroundColor(.blue)
+                            }
                         }
                     }
                     .padding(.horizontal)
@@ -131,6 +146,13 @@ public struct HomeView: View {
                 }
             }
             .background(Color(.systemGroupedBackground))
+            .sheet(isPresented: $showAuthSheet) {
+                if authService.isAuthenticated {
+                    UserProfileView()
+                } else {
+                    LoginView()
+                }
+            }
         }
     }
 

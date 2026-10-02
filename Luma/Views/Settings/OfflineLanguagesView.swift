@@ -4,12 +4,52 @@ import SwiftUI
 public struct OfflineLanguagesView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var offlineManager: OfflineManager = OfflineManager.shared
+    @ObservedObject var cloudflareService: CloudflareService = CloudflareService.shared
+    @State private var updateAlert: Bool = false
 
     public init() {}
 
     public var body: some View {
         NavigationStack {
             List {
+                // Section Cloudflare Edge OTA
+                Section {
+                    HStack(spacing: 12) {
+                        Image(systemName: "cloud.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(.orange)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Cloudflare Edge CDN")
+                                .font(.system(size: 15, weight: .bold))
+                            Text(cloudflareService.syncStatusMessage)
+                                .font(.system(size: 12))
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        Button {
+                            Task {
+                                _ = await cloudflareService.checkForUpdates()
+                                updateAlert = true
+                            }
+                        } label: {
+                            if cloudflareService.isCheckingUpdates {
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                            } else {
+                                Text("Comprobar")
+                                    .font(.system(size: 12, weight: .bold))
+                                    .foregroundColor(.blue)
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 5)
+                                    .background(Color.blue.opacity(0.12))
+                                    .clipShape(Capsule())
+                            }
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    .padding(.vertical, 4)
+                }
+
                 // Section Storage Status
                 Section {
                     VStack(alignment: .leading, spacing: 6) {
